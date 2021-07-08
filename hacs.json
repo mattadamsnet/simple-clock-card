@@ -1,5 +1,5 @@
 {
-  "name": "Simple Clock Card",
+  "name": "Simple date Card",
   "content_in_root": true,
   "render_readme": true,
   "filename": "simple-date-card.js"
