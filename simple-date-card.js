@@ -25,21 +25,15 @@ class SimpleClockCard extends HTMLElement {
 
 			function startTime() {
 				var today = new Date(),
-				h = today.getHours(),
-				m = today.getMinutes(),
-				s = today.getSeconds(),
-				p = ( h < 12 ) ? "AM" : "PM";
-				m = addZero(m);
-				s = addZero(s);
-
+				d = today.getDay(),
+				m = today.getMonth(),
+				D = today.getDate(),
+				y = today.getYear();
+				
 				let  use_military = config.use_military !== undefined ? config.use_military : true;
 				let  hide_seconds = config.hide_seconds !== undefined ? config.hide_seconds : false;
 
-				let time_str =  (use_military ? h : ((h + 11) % 12) + 1 ) +
-                   ":" +
-                   m +
-                   (hide_seconds ? "" : ":" + s ) +
-                   (use_military ? " " : " " + p );
+				let time_str =  d + ", " + m + " " + D + ", " + y;
 				content.innerHTML = time_str;
 			}
 		}
@@ -54,4 +48,4 @@ class SimpleClockCard extends HTMLElement {
     }
 }
 
-customElements.define('simple-clock-card', SimpleClockCard);
+customElements.define('simple-date-card', SimpleDateCard);
