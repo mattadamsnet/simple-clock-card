@@ -24,17 +24,32 @@ class SimpleDateCard extends HTMLElement {
 			}
 
 			function startTime() {
-				var today = new Date(),
-				d = today.getDay(),
-				m = today.getMonth(),
-				D = today.getDate(),
-				y = today.getYear();
+		
 				
-				let  use_military = config.use_military !== undefined ? config.use_military : true;
-				let  hide_seconds = config.hide_seconds !== undefined ? config.hide_seconds : false;
 
-				let time_str =  d + ", " + m + " " + D + ", " + y;
+				
+				
+var now = new Date();
+
+var days = new Array('Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday');
+
+var months = new Array('January','February','March','April','May','June','July','August','September','October','November','December');
+
+var date = ((now.getDate()<10) ? "0" : "")+ now.getDate();
+
+function fourdigits(number)  {
+	return (number < 1000) ? number + 1900 : number;
+								}
+let time_str =  days[now.getDay()] + ", " +
+         months[now.getMonth()] + " " +
+         date + ", " +
+         (fourdigits(now.getYear())) ;
+				
+				
 				content.innerHTML = time_str;
+				
+				
+				
 			}
 		}
 	}
