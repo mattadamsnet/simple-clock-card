@@ -1,4 +1,4 @@
-class SimpleClockCard extends HTMLElement {
+class SimpleDateCard extends HTMLElement {
 
 	set hass(hass) {
 
